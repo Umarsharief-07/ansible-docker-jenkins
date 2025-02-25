@@ -14,6 +14,8 @@ pipeline{
                 def name = "ansible"
 
                 sh """ 
+                sudo usermod -aG docker ubuntu
+                sudo chmod 777 /var/run/docker.sock
                 docker build -t ansible/jenkins/docker:${BUILD_NUMBER} .
 
                 if ["$name = "ansible"]; then
