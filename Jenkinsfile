@@ -1,15 +1,15 @@
 pipeline{
     agent any 
-    stages{
-        stage('Checkout'){
-            step{
+    stages {
+        stage('Checkout') {
+            step {
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Umarsharief-07/ansible-docker-jenkins.git']])
 
             }
         }
-        stage('docker build'){
-            steps{
-                script{
+        stage('docker build') {
+            steps {
+                script {
 
                 def name = "ansible"
 
