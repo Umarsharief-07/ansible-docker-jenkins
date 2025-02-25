@@ -9,6 +9,8 @@ pipeline{
         }
         stage('docker build'){
             steps{
+                script{
+
                 def name = "ansible"
 
                 sh """ 
@@ -20,6 +22,7 @@ pipeline{
                    docker run -d --name ansible -p 4000:8080 ansible/jenkins/docker:${BUILD_NUMBER}
                 fi
             """
+                }
 
             }
         }
